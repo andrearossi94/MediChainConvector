@@ -1,0 +1,37 @@
+[
+	{
+		"path": "$ROOTPATH$/NOTES.md",
+		"bookmarks": [
+			{
+				"line": 126,
+				"column": 0,
+				"label": ""
+			},
+			{
+				"line": 133,
+				"column": 51,
+				"label": ""
+			},
+			{
+				"line": 561,
+				"column": 2,
+				"label": ""
+			},
+			{
+				"line": 1773,
+				"column": 54,
+				"label": ""
+			}
+		]
+	},
+	{
+		"path": "$ROOTPATH$/packages/server-graphql/src/person/person.resolver.ts",
+		"bookmarks": [
+			{
+				"line": 79,
+				"column": 2,
+				"label": ""
+			}
+		]
+	}
+]

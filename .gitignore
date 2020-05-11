@@ -1,0 +1,9 @@
+**/node_modules/**
+.bak
+.src
+.trash
+.history/
+dist/
+chaincode-person/
+log/packages/server/.env
+.vscode/chrome

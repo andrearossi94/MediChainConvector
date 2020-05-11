@@ -1,0 +1,52 @@
+{
+  "files.exclude": {
+    ".trash/": true,
+    ".src/": true,
+    ".bak/": true,
+    "**/dist/": true,
+    "**/node_modules/": true,
+    // The following will hide the js and map files in the editor
+    "**/*.js": true,
+    "**/*.map": true
+  },
+  "cSpell.words": [
+    "EDOCMISSING",
+    "Invokable",
+    "MSPs",
+    "Moked",
+    "Monteiro",
+    "QLJSON",
+    "chaincode",
+    "chaincodes",
+    "codegen",
+    "couchdb",
+    "distros",
+    "easyconfig",
+    "firstname",
+    "graphql",
+    "hyperledger",
+    "inmemory",
+    "koakh",
+    "lastname",
+    "middlewares",
+    "nestjs",
+    "personid",
+    "prestart",
+    "relogin",
+    "worldsibu",
+    "xclip"
+  ],
+  "peacock.color": "#639",
+  "browser-preview.startUrl": "http://localhost:3000",
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#7f40bf",
+    "activityBar.activeBorder": "#c78f58",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#c78f58",
+    "activityBarBadge.foreground": "#15202b",
+    "panel.border": "#7f40bf",
+    "sideBar.border": "#7f40bf",
+    "editorGroup.border": "#7f40bf"
+  }
+}
