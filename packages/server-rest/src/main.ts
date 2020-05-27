@@ -25,7 +25,10 @@ async function bootstrap() {
     new ExpressAdapter(server),
   );
   // enable cors
-  app.enableCors();
+  app.enableCors({
+    origin: e.corsOriginReactFrontend,
+    credentials: true,
+  });
   // redirect middleware
   app.use(redirectMiddleware);
 

@@ -28,7 +28,7 @@ export class PersonaleController extends ConvectorController {
     personale: Personale
 
   ) {
-    // Retrieve to see if exists
+    // Controllo se esiste
     const existing = await Personale.getOne(personale.id);
     if (!existing || !existing.id) {
       const exists = await Personale.query(Personale, {
@@ -42,7 +42,7 @@ export class PersonaleController extends ConvectorController {
       }
 
       personale.msp = this.tx.identity.getMSPID();
-      // Create a new identity
+      // Crea una nuova identità
       personale.identities = [{
         fingerprint: this.sender,
         status: true

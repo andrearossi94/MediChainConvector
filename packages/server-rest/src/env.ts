@@ -29,4 +29,8 @@ export const envVariables: any = {
   accessTokenExpiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN || '15m',
   refreshTokenJwtSecret: process.env.REFRESH_TOKEN_JWT_SECRET || 'secretKeyRefreshToken',
   refreshTokenExpiresIn: process.env.REFRESH_TOKEN_EXPIRES_IN || '7d',
+
+  // cors origin
+
+  corsOriginReactFrontend: process.env.CORS_ORIGIN_REACT_FRONTEND || 'http://localhost:3000',
 };

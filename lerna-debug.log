@@ -1,13 +1,48 @@
-0 silly argv { _: [ 'add' ],
-0 silly argv   scope: 'cartellaclinica-cc',
-0 silly argv   'include-filtered-dependencies': true,
-0 silly argv   includeFilteredDependencies: true,
-0 silly argv   globs: [],
+0 silly argv { _: [ 'run' ],
+0 silly argv   scope: '@convector-sample/server-rest',
+0 silly argv   stream: true,
 0 silly argv   lernaVersion: '3.16.4',
-0 silly argv   '$0': 'node_modules/.bin/lerna',
-0 silly argv   pkg: 'personale-cc' }
+0 silly argv   '$0': '../../node_modules/.bin/lerna',
+0 silly argv   script: 'start' }
 1 notice cli v3.16.4
-2 verbose rootPath /home/convector/convector-nest
-3 error Error: 404 Not Found - GET https://registry.npmjs.org/personale-cc - Not found
-3 error     at res.buffer.catch.then.body (/home/convector/convector-nest/node_modules/@evocateur/npm-registry-fetch/check-response.js:104:15)
-3 error     at <anonymous>
+2 verbose rootPath /home/convector/MediChainConvector
+3 info filter [ '@convector-sample/server-rest' ]
+4 info Executing command in 1 package: "npm run start"
+5 silly npmRunScript.stream [ 'start', [], '@convector-sample/server-rest' ]
+6 silly getExecOpts /home/convector/MediChainConvector/packages/server-rest undefined
+7 error Error: Command failed: npm run start
+7 error
+7 error
+7 error > @convector-sample/server-rest@0.0.1 start /home/convector/MediChainConvector/packages/server-rest
+7 error > env-cmd -f .env ts-node -r tsconfig-paths/register src/main.ts
+7 error
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +67ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[InstanceLoader] [39m[32mUsersModule dependencies initialized[39m[38;5;3m +1ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[InstanceLoader] [39m[32mCartellaclinicaModule dependencies initialized[39m[38;5;3m +1ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[InstanceLoader] [39m[32mPersonaleModule dependencies initialized[39m[38;5;3m +1ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +1ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[RoutesResolver] [39m[32mAppController {/}:[39m[38;5;3m +286ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[RouterExplorer] [39m[32mMapped {/, GET} route[39m[38;5;3m +5ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[RouterExplorer] [39m[32mMapped {/api/login, POST} route[39m[38;5;3m +13ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[RouterExplorer] [39m[32mMapped {/api/me, GET} route[39m[38;5;3m +3ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[RoutesResolver] [39m[32mCartellaclinicaController {/api/cartellaclinica}:[39m[38;5;3m +2ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[RouterExplorer] [39m[32mMapped {/:pazienteid/getbyusername, GET} route[39m[38;5;3m +2ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[RouterExplorer] [39m[32mMapped {/:id, GET} route[39m[38;5;3m +7ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[RouterExplorer] [39m[32mMapped {/, POST} route[39m[38;5;3m +4ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[RouterExplorer] [39m[32mMapped {/:id/degenza, POST} route[39m[38;5;3m +3ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[RouterExplorer] [39m[32mMapped {/:id/cambiaconsenso, POST} route[39m[38;5;3m +3ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[RoutesResolver] [39m[32mPersonaleController {/api/personale}:[39m[38;5;3m +3ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[RouterExplorer] [39m[32mMapped {/, GET} route[39m[38;5;3m +2ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[RouterExplorer] [39m[32mMapped {/:id, GET} route[39m[38;5;3m +4ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[RouterExplorer] [39m[32mMapped {/, POST} route[39m[38;5;3m +2ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +16ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [32mHTTP Server running on port [3080][39m[38;5;3m +33ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [32mHTTPS Server running on port [3444][39m[38;5;3m +4ms[39m
+7 error [32m[Nest] 7020   - [39m2020-05-26 19:08:32   [32mContext path with cryptographic materials exists[39m[38;5;3m +32ms[39m
+7 error
+7 error     at makeError (/home/convector/MediChainConvector/node_modules/@lerna/child-process/node_modules/execa/index.js:174:9)
+7 error     at Promise.all.then.arr (/home/convector/MediChainConvector/node_modules/@lerna/child-process/node_modules/execa/index.js:278:16)
+7 error     at <anonymous>
