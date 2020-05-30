@@ -2,14 +2,24 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DataTable from './Table';
 
+
 export default class Profile extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { usersCollection: [] };
+        this.state = { usersCollection: []
+        
+        
+        
+        };
 
         this.onSubmit = this.onSubmit.bind(this);
+
+        this.onSubmitLogout = this.onSubmitLogout.bind(this);
+
+        this.onSubmitCartellaclinica = this.onSubmitCartellaclinica.bind(this);
     }
+        
 
    
     componentDidMount() {
@@ -53,6 +63,11 @@ export default class Profile extends Component {
        /* }); */
     }
     
+    logoutHandler =(e) => {
+        this.props.history.push('/login-user')
+    }
+    
+
     onSubmit(e) {
         e.preventDefault()
 
@@ -61,6 +76,26 @@ export default class Profile extends Component {
         const { history } = this.props;
 
         history.push("/personale");
+    }
+
+
+    onSubmitLogout(e){
+        e.preventDefault()
+
+        const { history } = this.props;
+
+        localStorage.clear();
+
+
+        history.push("/");
+    }
+
+    onSubmitCartellaclinica(e){
+        e.preventDefault()
+
+        const { history } = this.props;
+
+        history.push("/create-cartellaclinica")
     }
 
      render() {
@@ -79,9 +114,7 @@ export default class Profile extends Component {
                                 <td>Lastname</td>
                                 <td>roles</td>
                             </tr>
-                            
-                            
-                            
+                              
                         </thead>
 
                         <tbody>
@@ -90,6 +123,14 @@ export default class Profile extends Component {
                     </table>
                     <form onSubmit={this.onSubmit}> 
                     <input type="submit" value="Show all users" className="btn btn-success btn-block" />
+                    </form>
+
+                    <form onSubmitLogout={this.onSubmitLogout}>
+                        <input type="submit" value="logout" onClick={e=>this.onSubmitLogout(e)}></input>
+                    </form>
+
+                    <form onSubmitCartellaclinica={this.onSubmitCartellaclinica}>
+                        <input type="submit" value="Create" onClick={e=>this.onSubmitCartellaclinica(e)}></input>
                     </form>
                 </div>
             </div>

@@ -36,7 +36,7 @@ export class AuthService {
   // richiamata da appController
   async login(user: User) {
     // scegliamo una proprietà sub per mantenere il nostro valore userId in modo da essere coerente con gli standard JWT, insieme alle altre proprietà da visualizzare
-    const payload = { sub: user.id, username: user.username , email: user.email, firstname: user.firstname, lastname: user.lastname, roles: user.roles};
+    const payload = { id: user.id, username: user.username , email: user.email, firstname: user.firstname, lastname: user.lastname, roles: user.roles};
     return {
       // genera un jwt da un sottoinsieme delle proprietà dell'oggetto utente
       accessToken: this.jwtService.sign(payload),

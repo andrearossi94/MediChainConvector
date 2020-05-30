@@ -2,27 +2,19 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DataTable from './Table';
 
+
+
 export default class Personale extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { usersCollection: [] };
 
-        /* this.onChangeUserUserName = this.onChangeUserUserName.bind(this); 
+        this.state = { usersCollection: [] 
+        };
 
-        this.state = {
-            username: ''
-        }
-
-
-        this.onSubmit = this.onSubmit.bind(this); */
+              
     }
 
-    /* onChangeUserUserName(e) {
-        this.setState({ username: e.target.value })
-    } */
-
-   
     componentDidMount() {
         const token = localStorage.getItem('token');
         const config = {
@@ -61,40 +53,41 @@ export default class Personale extends Component {
         }); 
     }
 
-   /* onSubmit(e) {
-        e.preventDefault()
+    
 
-       
-        const { history } = this.props;
-
-        const userObject = {
-            username: this.state.username
-
-        };
-
-        axios.get('https://localhost:3444/api/personale/id', userObject)
-            .then((res) => {
-                console.log(res.data)
-
-            });
-
-        history.push("/personale/" + this.state.username);
-    } */
+    /* onChange(e){
+        this.setState({
+          user: e.target.value
+        });
+        console.log(this.state.user);
+      }
+      renderList(){
+        return this.props.usersCollection.filter(user => 
+            user.firstname.toLowerCase().includes(this.state.user.toLowerCase())).map(searchedUsers => {
+          return(
+            <tr key={searchedUsers.firstname}>
+              <td>{searchedUsers.firstname}</td>
+            </tr>
+          );
+        });
+      } */
 
      render() {
-        return (
-            
+        
+        return ( 
             <div className="wrapper-users">
                 <p className="navbar-brand">Users List</p>
                 <div className="container">
-                <form onSubmit={this.onSubmit}>
-                    <input type="text" placeholder="cerca">
+                    
+                    <form >
 
-                    </input>
-                    <input type="submit" value="cerca">
-
-                    </input>
+                        <input type="text" 
+                        placeholder="cerca"
+                        
+                        />
+                          
                     </form>
+    
                     <table className="table table-striped table-dark">
                         <thead className="thead-dark">
                             <tr>
@@ -109,7 +102,7 @@ export default class Personale extends Component {
                         <tbody>
                             {this.dataTable()}
                         </tbody>
-                    </table>
+                    </table>   
                 </div>
             </div>
         )

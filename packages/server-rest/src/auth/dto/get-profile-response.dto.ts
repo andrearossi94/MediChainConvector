@@ -5,7 +5,7 @@ export class GetProfileResponseDto {
   @ApiModelProperty()
   @IsString()
   @IsNotEmpty()
-  readonly userId: string;
+  readonly id: string;
 
   @ApiModelProperty()
   @IsString()

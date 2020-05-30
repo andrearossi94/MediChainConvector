@@ -4,8 +4,11 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import LoginUser from "./Components/login";
 import Profile from "./Components/profile";
 import Personale from "./Components/personale";
+import Logout from "./Components/logout";
 import logo from "./logo.svg";
 import Medical_doctor from "./Medical_doctor.png";
+import CreateCartellaClinica from './Components/CreateCartellaClinica';
+import PrivateRoute from './helpers/PrivateRoute';
 
 function App() {
   return (<Router>
@@ -16,11 +19,16 @@ function App() {
           <p className="navbar-brand">Welcome to the Login page</p>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <table>
             <ul className="navbar-nav ml-auto">
               <li className="nav-item active">
-                <Link className="nav-link" to={"/login-user"}>Login User</Link>
+                <tr>
+               <td><Link className="nav-link" to={"/login-user"}>Login User</Link></td>
+                <td><Link className="nav-link" to={"/login-user"}>Logout</Link></td>
+                </tr>
               </li>
             </ul>
+            </table>
           </div>
         </nav>
         <img src={logo} className="App-logo" alt="logo" />
@@ -34,8 +42,10 @@ function App() {
             <Switch>
               <Route exact path='/' component={LoginUser} />
               <Route path="/login-user" component={LoginUser} />
-              <Route path="/profile" component={Profile} />
-              <Route path="/personale" component={Personale} />
+              <PrivateRoute exact path="/profile" component={Profile} />
+              <PrivateRoute exact path="/personale" component={Personale} />
+              <PrivateRoute exact path="/logout" component={Logout} />
+              <PrivateRoute exact path="/create-cartellaclinica" component={CreateCartellaClinica} />
             </Switch>
           </div>
         </div>

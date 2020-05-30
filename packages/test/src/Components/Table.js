@@ -7,7 +7,7 @@ class DataTable extends Component {
         return (
             <tr>
                 <td>
-                    {this.props.obj._id}
+                    {this.props.obj.id}
                 </td>
                 <td>
                     {this.props.obj.username}
