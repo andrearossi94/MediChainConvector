@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 // import { useHistory } from "react-router-dom";
 import '../App.css';
-
+import CartellaClinica from './CartellaClinica';
 
 export default class CreateCartellaClinica extends Component {
 
     constructor(props) {
         super(props)
 
-        this.onChangeCartID = this.onChangeCartID.bind(this);
+        this.onChangeid = this.onChangeid.bind(this);
         this.onChangePazienteID = this.onChangePazienteID.bind(this);
         this.onChangeDottoreID = this.onChangeDottoreID.bind(this);
         this.onChangePatologia = this.onChangePatologia.bind(this);
@@ -19,18 +19,18 @@ export default class CreateCartellaClinica extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            cartID: '',
+            id: '',
             pazienteID: '',
             dottoreID: '',
             patologia: '',
-            stato: false,
-            consenso: false
+            stato: true,
+            consenso: true
             
         }
     }
 
-    onChangeCartID(e) {
-        this.setState({ cartID: e.target.value })
+    onChangeid(e) {
+        this.setState({ id: e.target.value })
     }
 
     onChangePazienteID(e) {
@@ -53,11 +53,7 @@ export default class CreateCartellaClinica extends Component {
         this.setState({ consenso: e.target.value })
     }   
 
-  /*  componentDidMount() {
-        const token = localStorage.getItem('token');
-        const config = {
-            headers: { Authorization: `Bearer ${token}` }
-        };*/
+  
 
     onSubmit(e) {
         e.preventDefault()
@@ -69,45 +65,53 @@ export default class CreateCartellaClinica extends Component {
             headers: { Authorization: `Bearer ${token}` }
         };
 
-        const userObject = {
-            
-            cartID: this.state.cartID,
-            pazienteID: this.state.pazienteID,
-            dottoreID: this.state.dottoreID,
-            patologia: this.state.patologia,
-            stato: this.state.stato,
-            consenso: this.state.consenso
-        };
-    
-        axios.post('https://localhost:3444/api/cartellaclinica', userObject, config)
+        console.log("Prova1", token, config)
+
+        const cart =  new CartellaClinica(
+            this.state.id,
+            this.state.pazienteID,
+            this.state.dottoreID,
+            this.state.patologia,
+            this.state.stato,
+            this.state.consenso
+        );
+
+        const userObject = { cartellaclinica : cart}
+
+       /* const test =  {
+            "cartellaclinica": {id: this.state.cartID, 
+            pazienteID: this.state.pazienteID, 
+            dottoreID: this.state.dottoreID, 
+            patologia: this.state.patologia, 
+            stato: this.state.stato,  
+            consenso: this.state.consenso}
+            } */
+
+        console.log("Userobejct", userObject)
+
+        axios.post('https://localhost:3444/api/cartellaclinica', userObject, config) 
             .then((res) => {
                 
-                console.log(res.data)
-                
-                history.push("/profile");
+                console.log("Payload ", res.data)
 
-                this.setState({ cartID: '', pazienteID: '', dottoreID: '', patologia: '', stato: false , consenso: false })
+                history.push("/profile");
 
             }).catch((error) => {
                 /* this.setState({logged:0}); */
                 console.log('Error', error)
             });
 
-        
+        this.setState({ id: '', pazienteID: '', dottoreID: '', patologia: '', stato: true , consenso: true })
 
         }
-    
-
     render() {
-        
-
         return (
             
              /* <form className="box"> */
                 <form onSubmit={this.onSubmit} className="createcartella">
                   <h1>Crea una cartella clinica</h1>
 
-                        <input type="text" placeholder="CartellaID" value={this.state.cartID} onChange={this.onChangeCartID} /* className="form-control"*/ />
+                        <input type="text" placeholder="CartellaID" value={this.state.id} onChange={this.onChangeid} /* className="form-control"*/ />
                         <br></br>
                         <input type="text" placeholder="pazienteID" value={this.state.pazienteID} onChange={this.onChangePazienteID} /* className="form-control"*/ />
                         <br></br>
@@ -127,11 +131,11 @@ export default class CreateCartellaClinica extends Component {
                        
                         </div>
                         </form>
+                        
                     <div className="form-group">
-                        <input type="submit" value="Create" className="btn btn-success btn-block"/>
+                        <input type="submit" value="Create" className="btn btn-success btn-block" />
                     </div>
-                
-             </form> 
+                </form>
         )
     }
 }

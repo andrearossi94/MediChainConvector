@@ -9,6 +9,7 @@ import logo from "./logo.svg";
 import Medical_doctor from "./Medical_doctor.png";
 import CreateCartellaClinica from './Components/CreateCartellaClinica';
 import PrivateRoute from './helpers/PrivateRoute';
+import ShowCartellaClinica from './Components/ShowCartellaClinica';
 
 function App() {
   return (<Router>
@@ -46,6 +47,7 @@ function App() {
               <PrivateRoute exact path="/personale" component={Personale} />
               <PrivateRoute exact path="/logout" component={Logout} />
               <PrivateRoute exact path="/create-cartellaclinica" component={CreateCartellaClinica} />
+              <PrivateRoute exact path="/showCart" component={ShowCartellaClinica} />
             </Switch>
           </div>
         </div>
