@@ -10,15 +10,43 @@ export default class ShowCartellaClinica extends Component {
         super(props);
 
         this.onChangeSearch = this.onChangeSearch.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+        this.onSubmitDegenza = this.onSubmitDegenza.bind(this);
 
         this.state = { cartCollection: [],
-            id:'' 
+            id: '' 
         };      
     }
 
     onChangeSearch(e) {
         this.setState({ id: e.target.value })
     }
+
+    onSubmitDegenza(e) {
+        e.preventDefault()
+        
+        const { history } = this.props;
+
+        const token = localStorage.getItem('token');
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+
+        console.log(this.state.id)
+
+        axios.post('https://localhost:3444/api/cartellaclinica/' + this.state.id + '/degenza', this.state.id, config)
+            .then(res => {
+                
+                console.log(res.data)
+
+                history.push("/showCart")
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+    
 
     onSubmit(e) {
         e.preventDefault() 
@@ -30,7 +58,7 @@ export default class ShowCartellaClinica extends Component {
 
        console.log(this.state.id)
 
-        axios.get('https://localhost:3444/api/cartellaclinica/' + this.state.id, config)
+        axios.get('https://localhost:3444/api/cartellaclinica/' + this.state.id , config)
             .then(res => {
                 console.log(res.data)
 
@@ -52,18 +80,6 @@ export default class ShowCartellaClinica extends Component {
                     stato,
                     consenso
                 )
-               /* var key = '';
-                var profile = [];
-                var i = 0;
-                for(key in res.data) {
-                    if(res.data.hasOwnProperty(key)) {
-                        var value = res.data[key];
-                        profile[i] = value;
-                        i++;
-                        
-                    }
-                } 
-                console.log(profile); */
 
                 
                 this.setState({ cartCollection: cart });
@@ -76,18 +92,12 @@ export default class ShowCartellaClinica extends Component {
             })
     }
 
-  /*  dataTable() {
-        return this.state.cartCollection.map((data, i) => {
-            return <TableCartellaClinica obj={data} key={i} />;
-        }); 
-    } */
-
     dataTable() {
         
             return <TableCartellaClinica obj={this.state.cartCollection}/>;
     };
 
-     render() {
+    render() {
         
         return ( 
             <div className="wrapper-users">
@@ -96,10 +106,7 @@ export default class ShowCartellaClinica extends Component {
                     
                     <form onSubmit={this.onSubmit}> 
 
-                        <input type="text" 
-                        placeholder="cerca"
-                        onChangeSearch={this.onChangeSearch}
-                        />
+                        <input type="text" placeholder="Search" value={this.state.id} onChange={this.onChangeSearch} />
         
                         <div className="form-group">
                         <input type="submit" value="Search" className="btn btn-success btn-block"/>
@@ -121,7 +128,10 @@ export default class ShowCartellaClinica extends Component {
                         <tbody>
                             {this.dataTable()}
                         </tbody>
-                    </table>   
+                    </table>
+                   <form onSubmitDegenza={this.onSubmitDegenza}>
+                    <input type="submit" value="Change Degenza" /> 
+                    </form>
                 </div>
             </div>
         )

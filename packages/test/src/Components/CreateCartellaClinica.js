@@ -133,7 +133,7 @@ export default class CreateCartellaClinica extends Component {
                         </form>
                         
                     <div className="form-group">
-                        <input type="submit" value="Create" className="btn btn-success btn-block" />
+                        <input type="submit" value="Create" className="btn btn-success btn-block"/>
                     </div>
                 </form>
         )

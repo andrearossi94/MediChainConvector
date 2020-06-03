@@ -17,7 +17,7 @@ function App() {
       <header>
       
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-          <p className="navbar-brand">Welcome to the Login page</p>
+          <p className="navbar-brand"></p>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <table>

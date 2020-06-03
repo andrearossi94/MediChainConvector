@@ -75,7 +75,7 @@ export default class LoginUser extends Component {
             /*<div className="wrapper">*/
               <form className="box">
 
-                  <h1>Login</h1>
+                  <h1>Welcome to the login page of MedicalChain</h1>
                  
                   {this.state.logged === 0}
 

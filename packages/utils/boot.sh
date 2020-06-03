@@ -37,8 +37,8 @@ hurl invoke cartellaclinica personale_register "{ \"id\": \"Paz1\", \"firstname\
 hurl invoke cartellaclinica personale_register "{ \"id\": \"Dot2\", \"firstname\": \"Giuseppe\", \"lastname\": \"Simari\", \"username\": \"gs1986\", \"password\": \"giuseppe123\", \"email\": \"giuseppe@email.com\", \"roles\": [\"DOC\"] }" -u dottore2
 hurl invoke cartellaclinica personale_register "{ \"id\": \"Paz2\", \"firstname\": \"Giacomo\", \"lastname\": \"Calabresi\", \"username\": \"gc1996\", \"password\": \"giacomo123\",  \"email\": \"giacomo@email.com\" }" -u paziente2
 
-hurl invoke cartellaclinica personale_register "{ \"id\": \"Dot3\", \"firstname\": \"Paolo\", \"lastname\": \"Giughi\", \"username\": \"pg1954\", \"password\": \"paolo123\",  \"email\": \"paolo@email.com\" }" -u dottore3
-hurl invoke cartellaclinica personale_register "{ \"id\": \"Dot4\", \"firstname\": \"Daniele\", \"lastname\": \"Bigoli\", \"username\": \"db1973\", \"password\": \"daniele123\",  \"email\": \"daniele@email.com\" }" -u dottore4
+hurl invoke cartellaclinica personale_register "{ \"id\": \"Dot3\", \"firstname\": \"Paolo\", \"lastname\": \"Giughi\", \"username\": \"pg1954\", \"password\": \"paolo123\",  \"email\": \"paolo@email.com\", \"roles\": [\"DOC\"] }" -u dottore3
+hurl invoke cartellaclinica personale_register "{ \"id\": \"Dot4\", \"firstname\": \"Daniele\", \"lastname\": \"Bigoli\", \"username\": \"db1973\", \"password\": \"daniele123\",  \"email\": \"daniele@email.com\" , \"roles\": [\"DOC\"]}" -u dottore4
 
 hurl invoke cartellaclinica personale_register "{ \"id\": \"Paz3\", \"firstname\": \"Alice\", \"lastname\": \"Comodi\", \"username\": \"ac1999\", \"password\": \"alice123\",  \"email\": \"alice@email.com\" }" -u paziente3
 hurl invoke cartellaclinica personale_register "{ \"id\": \"Paz4\", \"firstname\": \"Paola\", \"lastname\": \"Paglia\", \"username\": \"pp1982\", \"password\": \"paola123\",  \"email\": \"paola@email.com\" }" -u paziente4
