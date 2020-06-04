@@ -71,8 +71,8 @@ export class CartellaclinicaController {
       throw new HttpException(message, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
-// da guardare
-  @Post('/:id/degenza')
+
+  @Get('/degenza/:id')
   @ApiBearerAuth()
   @UseGuards(AuthGuard())
   @ApiOperation({ title: c.API_OPERATION_DEGENZA_CARTELLACLINICA })
@@ -88,7 +88,7 @@ export class CartellaclinicaController {
     }
   }
 
-  @Post('/:id/cambiaconsenso')
+  @Get('/cambiaconsenso/:id')
   @ApiBearerAuth()
   @UseGuards(AuthGuard())
   @ApiOperation({ title: c.API_OPERATION_CAMBIACONSENSO_CARTELLACLINICA })

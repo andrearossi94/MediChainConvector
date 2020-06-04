@@ -31,7 +31,7 @@ export default class Profile extends Component {
 
         axios.get('https://localhost:3444/api/me', config)
             .then(res => {
-                console.log(res.data)
+                console.log("resdata", res.data);
 
                /* var key = '';
                 var profile = [];
@@ -46,7 +46,9 @@ export default class Profile extends Component {
                 } 
                 console.log(profile); */
 
-                console.log(this.state.usersCollection);
+                localStorage.setItem("role" , res.data.roles[0])
+                
+                
                 this.setState({ usersCollection: res.data });
                 
                 

@@ -12,9 +12,11 @@ export default class ShowCartellaClinica extends Component {
         this.onChangeSearch = this.onChangeSearch.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onSubmitDegenza = this.onSubmitDegenza.bind(this);
+        this.onSubmitConsenso = this.onSubmitConsenso.bind(this);
 
         this.state = { cartCollection: [],
-            id: '' 
+            id: '',
+            roles: localStorage.getItem("role")
         };      
     }
 
@@ -24,8 +26,6 @@ export default class ShowCartellaClinica extends Component {
 
     onSubmitDegenza(e) {
         e.preventDefault()
-        
-        const { history } = this.props;
 
         const token = localStorage.getItem('token');
         const config = {
@@ -34,12 +34,38 @@ export default class ShowCartellaClinica extends Component {
 
         console.log(this.state.id)
 
-        axios.post('https://localhost:3444/api/cartellaclinica/' + this.state.id + '/degenza', this.state.id, config)
+        axios.get('https://localhost:3444/api/cartellaclinica/degenza/' + this.state.id, config)
             .then(res => {
                 
                 console.log(res.data)
+                
+                alert("Success, degenza changed");
+                
 
-                history.push("/showCart")
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+
+    onSubmitConsenso(e) {
+        e.preventDefault()
+        
+
+        const token = localStorage.getItem('token');
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+
+        console.log(this.state.id)
+
+        axios.get('https://localhost:3444/api/cartellaclinica/cambiaconsenso/' + this.state.id, config)
+            .then(res => {
+                
+                console.log(res.data)
+                
+                alert("Success, consenso changed");
+                
 
             })
             .catch(function (error) {
@@ -62,11 +88,11 @@ export default class ShowCartellaClinica extends Component {
             .then(res => {
                 console.log(res.data)
 
-                let stato = 'dimesso'
-                let consenso = 'negato'
+                let stato = 'In degenza'
+                let consenso = 'Negato'
 
-                if(res.data._stato === true ){
-                    stato = 'In degenza'
+                if(res.data._stato === false ){
+                    stato = 'Dimesso'
                 }
                 if(res.data._consenso === true){
                     consenso = 'Concesso'
@@ -129,9 +155,17 @@ export default class ShowCartellaClinica extends Component {
                             {this.dataTable()}
                         </tbody>
                     </table>
+
+                    {this.state.roles === 'DOC' &&(
                    <form onSubmitDegenza={this.onSubmitDegenza}>
-                    <input type="submit" value="Change Degenza" /> 
+                    <input type="submit" value="Change Degenza" onClick={e=>this.onSubmitDegenza(e)}/> 
                     </form>
+                    )}
+                    {this.state.roles === 'USER' &&(
+                   <form onSubmitConsenso={this.onSubmitConsenso}>
+                    <input type="submit" value="Change Consenso" onClick={e=>this.onSubmitConsenso(e)}/> 
+                    </form>
+                    )}
                 </div>
             </div>
         )

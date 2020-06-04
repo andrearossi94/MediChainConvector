@@ -7,9 +7,11 @@ import Personale from "./Components/personale";
 import Logout from "./Components/logout";
 import logo from "./logo.svg";
 import Medical_doctor from "./Medical_doctor.png";
+import patient from "./patient.jpg";
 import CreateCartellaClinica from './Components/CreateCartellaClinica';
 import PrivateRoute from './helpers/PrivateRoute';
 import ShowCartellaClinica from './Components/ShowCartellaClinica';
+import Degenza from './Components/Degenza';
 
 function App() {
   return (<Router>
@@ -34,6 +36,7 @@ function App() {
         </nav>
         <img src={logo} className="App-logo" alt="logo" />
         <img src={Medical_doctor} className="img-doctor" alt="Doctor" />
+        <img src={patient} className="patient" alt="Patient" />
       </header>
 
       <div className="container">
@@ -48,6 +51,7 @@ function App() {
               <PrivateRoute exact path="/logout" component={Logout} />
               <PrivateRoute exact path="/create-cartellaclinica" component={CreateCartellaClinica} />
               <PrivateRoute exact path="/showCart" component={ShowCartellaClinica} />
+              <PrivateRoute exatch path="/degenza" component={Degenza} />
             </Switch>
           </div>
         </div>
