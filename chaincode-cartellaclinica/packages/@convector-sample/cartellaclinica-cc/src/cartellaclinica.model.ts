@@ -36,12 +36,4 @@ export class Cartellaclinica extends ConvectorModel<Cartellaclinica> {
   @Validate(yup.string())
   public msp: string;
 
-  /*@ReadOnly()
-  @Required()
-  @Validate(yup.number())
-  public created: number;
-
-  @Required()
-  @Validate(yup.number())
-  public modified: number;*/
 }

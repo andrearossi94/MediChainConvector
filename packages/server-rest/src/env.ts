@@ -3,8 +3,11 @@ import { envVariables as envVariablesCommon } from '@convector-sample/common';
 import { Logger } from '@nestjs/common';
 
 export const envVariables: any = {
+
+
   // fusione common envVariables
   ...envVariablesCommon,
+  
 
   // extend common envVariables
   // http/s server
@@ -20,7 +23,7 @@ export const envVariables: any = {
   swaggerModuleTagCartellaclinica: process.env.SWAGGER_MODULE_TAG_CARTELLACLINICA || 'cartellaclinica',
   swaggerModuleTagPersonale: process.env.SWAGGER_MODULE_TAG_PERSONALE || 'personale',
 
-  // authService : true: moked users array, false: or ledger person(users) authentication
+  
   authServiceUseMokedUsers: process.env.AUTH_SERVICE_USE_MOKED_USERS || true,
 
   // jwt
@@ -34,3 +37,5 @@ export const envVariables: any = {
 
   corsOriginReactFrontend: process.env.CORS_ORIGIN_REACT_FRONTEND || 'http://localhost:3000',
 };
+
+

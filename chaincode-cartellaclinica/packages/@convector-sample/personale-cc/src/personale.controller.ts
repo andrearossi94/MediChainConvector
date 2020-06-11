@@ -23,7 +23,7 @@ export class PersonaleController extends ConvectorController {
     return new ClientIdentity(stub.getStub());
   };
   @Invokable()
-  public async register(
+  public async register( // registra una nuova identità come paziente o dottore
     @Param(Personale)
     personale: Personale
 
@@ -48,7 +48,7 @@ export class PersonaleController extends ConvectorController {
         status: true
       }];
       console.log(JSON.stringify(personale));
-      
+
       //Hash della password con bcrypt
       personale.password = hashPassword(personale.password);
       await personale.save();
@@ -57,7 +57,7 @@ export class PersonaleController extends ConvectorController {
     }
   }
   @Invokable()
-  public async get(
+  public async get(  //get del personale tramite il proprio id
     @Param(yup.string())
     id: string
   ) {

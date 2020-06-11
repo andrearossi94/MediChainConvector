@@ -14,17 +14,17 @@ export class UsersService {
       {
         id: 1,
         username: 'john',
-        password: 'changeme',
+        password: 'test',
       },
       {
         id: 2,
-        username: 'chris',
-        password: 'secret',
+        username: 'mario',
+        password: 'bianchi',
       },
       {
         id: 3,
-        username: 'maria',
-        password: 'guess',
+        username: 'paolo',
+        password: 'rossi',
       },
     ];
   }

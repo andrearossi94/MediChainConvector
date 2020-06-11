@@ -44,8 +44,11 @@ hurl invoke cartellaclinica personale_register "{ \"id\": \"Paz3\", \"firstname\
 hurl invoke cartellaclinica personale_register "{ \"id\": \"Paz4\", \"firstname\": \"Paola\", \"lastname\": \"Paglia\", \"username\": \"pp1982\", \"password\": \"paola123\",  \"email\": \"paola@email.com\" }" -u paziente4
 
 sleep 2
+
 echo "Cartelle cliniche"
 hurl invoke cartellaclinica cartellaclinica_create "{ \"id\": \"Cart1\", \"pazienteID\": \"Paz1\", \"dottoreID\": \"Dot1\", \"patologia\": \"Frattura\",\"stato\": true, \"consenso\": true }" -u dottore1
+#hurl invoke cartellaclinica cartellaclinica_create "{ \"id\": \"Cart5\", \"pazienteID\": \"Paz3\", \"dottoreID\": \"Dot1\", \"patologia\": \"Lussazione\",\"stato\": true, \"consenso\": true }" -u dottore1
+
 hurl invoke cartellaclinica cartellaclinica_create "{ \"id\": \"Cart2\", \"pazienteID\": \"Paz2\", \"dottoreID\": \"Dot2\", \"patologia\": \"Trauma\", \"stato\": true, \"consenso\": true }" -u dottore2
 hurl invoke cartellaclinica cartellaclinica_create "{ \"id\": \"Cart3\", \"pazienteID\": \"Paz3\", \"dottoreID\": \"Dot3\", \"patologia\": \"Polmonite\", \"stato\": true, \"consenso\": true }" -u dottore3
 hurl invoke cartellaclinica cartellaclinica_create "{ \"id\": \"Cart4\", \"pazienteID\": \"Paz4\", \"dottoreID\": \"Dot4\", \"patologia\": \"Riabilitazione\", \"stato\": true, \"consenso\": true }" -u dottore4

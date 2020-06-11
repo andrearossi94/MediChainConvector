@@ -13,7 +13,7 @@ export class PersonaleService {
 
     try {
       const result = (await Personale.query(Personale, e.couchDBView, viewUrl, queryOptions)) as Personale[];
-      // map item toJson
+      // mappa l'item toJson
       return await Promise.all(result.map(item => item.toJSON()));
     } catch (err) {
       Logger.log(err);
@@ -32,20 +32,17 @@ export class PersonaleService {
       throw err;
     }
   }
-/*
-    public async getByUsername(username: string): Promise<Person> {
-      try {
-        const user = await PersonControllerBackEnd.getByUsername(username);
-        // create Person model
-        const userModel = new Person((user[0]));
-        return userModel;
-      } catch (err) {
-        throw err;
-      }
-    } */
-
-  
-
+  /*
+      public async getByUsername(username: string): Promise<Person> {
+        try {
+          const user = await PersonControllerBackEnd.getByUsername(username);
+          // create Person model
+          const userModel = new Person((user[0]));
+          return userModel;
+        } catch (err) {
+          throw err;
+        }
+      } */
 
   public async register(registerPersonaleDto: Personale) {
     try {

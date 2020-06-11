@@ -7,12 +7,6 @@ import { join, resolve } from 'path';
 import { CartellaclinicaController } from '@convector-sample/cartellaclinica-cc';
 import { envVariables as e } from './env';
 
-/**
- * shared common file in both packages, duplicated to
- * be customized for each api/organization/participant
- * packages/server-graphql/src/convector.ts
- * packages/server-rest/src/convector.ts
- */
 
 const adapter = new FabricControllerAdapter({
   txTimeout: 300000,

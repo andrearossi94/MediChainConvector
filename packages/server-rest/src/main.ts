@@ -37,7 +37,6 @@ async function bootstrap() {
     .setTitle(e.swaggerModuleTitle)
     .setDescription(e.swaggerModuleDescription)
     .setVersion(e.swaggerModuleVersion)
-    // .addTag('person')
     .setSchemes('https')
     .addBearerAuth()
     .build();
