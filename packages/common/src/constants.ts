@@ -1,7 +1,7 @@
 
 
 // convector model
-const CONVECTOR_MODEL_PATH_PREFIX: string = 'io.worldsibu.examples';
+const CONVECTOR_MODEL_PATH_PREFIX: string = 'it.dmi.unipg';
 const CONVECTOR_MODEL_PATH_PERSONALE: string = `${CONVECTOR_MODEL_PATH_PREFIX}.personale`;
 const CONVECTOR_MODEL_PATH_CARTELLACLINICA: string = `${CONVECTOR_MODEL_PATH_PREFIX}.cartellaclinica`;
 const CONVECTOR_MODEL_PATH_X509IDENTITY: string = `${CONVECTOR_MODEL_PATH_PREFIX}.x509identity`;
